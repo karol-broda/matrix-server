@@ -1,0 +1,38 @@
+# copy this file to terraform.tfvars and fill in the values
+
+# hetzner cloud api token
+# get from: https://console.hetzner.cloud/ -> project -> security -> api tokens
+hcloud_token = ""
+
+# cloudflare api token with dns:edit permission for your zone
+# get from: https://dash.cloudflare.com/profile/api-tokens
+cloudflare_api_token = ""
+
+# 1password account name or id (uses op cli for auth)
+# find via: op account list
+# requires "integrate with other apps" enabled in 1password settings
+onepassword_account = ""
+
+# 1password vault uuid where secrets will be stored
+# find via: op vault list
+onepassword_vault_id = ""
+
+# cloudflare zone id for your domain
+# find in cloudflare dashboard -> your domain -> overview (right sidebar)
+cloudflare_zone_id = ""
+
+# your domain name
+domain = "karolbroda.com"
+
+# hostname for matrix server (will be {server_name}.{domain})
+server_name = "matrix"
+
+# hetzner server type (cx22 = 2vcpu, 4gb ram - cheapest shared vcpu)
+server_type = "cx23"
+
+# hetzner datacenter location (nbg1 = nuremberg)
+server_location = "nbg1"
+
+# name for ssh key
+ssh_key_name = "matrix-server-key"
+

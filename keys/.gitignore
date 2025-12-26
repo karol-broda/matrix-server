@@ -1,0 +1,5 @@
+# ignore private keys - they are stored in 1password
+*
+!.gitignore
+!*.pub
+

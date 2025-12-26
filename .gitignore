@@ -1,0 +1,20 @@
+# nix
+result
+result-*
+
+# secrets
+*.tfvars
+!*.tfvars.example
+
+# private keys are managed by 1password (public keys are ok to commit)
+keys/*
+!keys/.gitignore
+!keys/*.pub
+
+# editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
