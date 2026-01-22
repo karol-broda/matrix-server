@@ -7,5 +7,7 @@
     ./memos.nix
     ./affine.nix
     ./kiosk.nix
+    ./netbird.nix
+    ./pocketid.nix
   ];
 }

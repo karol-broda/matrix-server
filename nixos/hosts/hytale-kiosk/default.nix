@@ -1,7 +1,6 @@
 {
   sshPubKeys,
   config,
-  pkgs,
   ...
 }: {
   system.stateVersion = "25.11";
@@ -17,7 +16,7 @@
 
   # pre-generated age key for first-boot decryption
   environment.etc."sops-age-key.txt" = {
-    source = ../../../keys/age/hytale-kiosk.txt;
+    text = builtins.readFile (builtins.getEnv "MATRIX_SERVER_ROOT" + "/keys/age/hytale-kiosk.txt");
     mode = "0400";
   };
 

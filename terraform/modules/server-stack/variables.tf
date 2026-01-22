@@ -59,7 +59,3 @@ variable "extra_dns_records" {
   default = []
 }
 
-
-
-
-

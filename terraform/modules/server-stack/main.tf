@@ -31,7 +31,3 @@ module "onepassword" {
   server_fqdn = "${var.name}.${var.domain}"
 }
 
-
-
-
-

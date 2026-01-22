@@ -127,6 +127,7 @@
           alejandra
           sops
           age
+          ssh-to-age
         ];
 
         shellHook = ''

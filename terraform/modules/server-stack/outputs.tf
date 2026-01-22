@@ -19,7 +19,3 @@ output "ssh_public_key" {
   value = module.server.ssh_public_key
 }
 
-
-
-
-

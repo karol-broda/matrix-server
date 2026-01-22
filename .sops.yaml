@@ -5,6 +5,9 @@ keys:
   # host keys (pre-generated, committed to repo for SD images)
   - &hytale-kiosk age1ulk94gxmtu87hk8vkawxk4n9zkryru054cwtcanukvsftvkq4gtq8ves6s
 
+  # server keys (derived from ssh host keys)
+  - &desk age1v5h3jfn877tgn7av3zd67mphmqqcx0rp7u3dxww3y364f8ssj9qsz66dnd
+
 creation_rules:
   - path_regex: secrets/hytale-kiosk\.yaml$
     key_groups:
@@ -12,3 +15,8 @@ creation_rules:
           - *user
           - *hytale-kiosk
 
+  - path_regex: secrets/desk\.yaml$
+    key_groups:
+      - age:
+          - *user
+          - *desk

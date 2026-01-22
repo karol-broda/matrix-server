@@ -41,10 +41,19 @@ locals {
             name    = "affine.desk"
             type    = "CNAME"
             content = "desk.karolbroda.com"
+          },
+          {
+            name    = "vpn"
+            type    = "CNAME"
+            content = "desk.karolbroda.com"
+          },
+          {
+            name    = "auth"
+            type    = "CNAME"
+            content = "desk.karolbroda.com"
           }
         ]
       }
     }
   }
 }
-
