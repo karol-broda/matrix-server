@@ -61,6 +61,12 @@ in {
       default = ["matrix.org"];
       description = "trusted servers for federation";
     };
+
+    adminEmail = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "admin email for /.well-known/matrix/support (MSC1929)";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -82,6 +88,9 @@ in {
               "m.identity_server": {"base_url": "https://matrix.org"},
               "org.matrix.msc3575.proxy": {"url": "https://${cfg.domain}"}
             }`
+            ${lib.optionalString (cfg.adminEmail != null) ''
+              respond /.well-known/matrix/support `{"contacts":[{"email_address":"${cfg.adminEmail}","role":"m.role.admin"}]}`
+            ''}
 
             ${lib.optionalString cfg.enableCinny ''
               root * ${cinnyWithConfig}
