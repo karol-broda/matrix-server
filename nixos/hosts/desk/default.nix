@@ -1,12 +1,13 @@
-{
-  sshPubKeys,
-  config,
-  ...
-}: let
+{ sshPubKeys
+, config
+, ...
+}:
+let
   domain = "karolbroda.com";
   deskDomain = "desk.${domain}";
   authDomain = "auth.${domain}";
-in {
+in
+{
   imports = [
     ./disk-config.nix
   ];
@@ -15,7 +16,7 @@ in {
 
   sops = {
     defaultSopsFile = ../../../secrets/desk.yaml;
-    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
     secrets = {
       netbird_encryption_key = {
@@ -91,6 +92,11 @@ in {
         audience = "fc2afc30-81ed-4d1e-9d0f-a6216798326c";
       };
     };
+
+    taskwarrior = {
+      enable = true;
+      domain = "taskwarrior.${deskDomain}";
+    };
   };
 
   services.caddy.globalConfig = ''
@@ -98,7 +104,7 @@ in {
   '';
 
   systemd.services.netbird-management = {
-    after = ["podman-pocketid.service"];
-    wants = ["podman-pocketid.service"];
+    after = [ "podman-pocketid.service" ];
+    wants = [ "podman-pocketid.service" ];
   };
 }

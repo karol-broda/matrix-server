@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./ssh.nix
     ./acme.nix
@@ -9,5 +9,6 @@
     ./kiosk.nix
     ./netbird.nix
     ./pocketid.nix
+    ./taskwarrior.nix
   ];
 }
