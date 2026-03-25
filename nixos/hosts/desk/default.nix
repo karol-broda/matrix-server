@@ -5,6 +5,7 @@
 let
   domain = "karolbroda.com";
   deskDomain = "desk.${domain}";
+  cacheDomain = "cache.${domain}";
   authDomain = "auth.${domain}";
 in
 {
@@ -28,6 +29,9 @@ in
       };
       pocketid_encryption_key = {
         mode = "0440";
+      };
+      attic_credentials = {
+        mode = "0400";
       };
     };
   };
@@ -96,6 +100,17 @@ in
     taskwarrior = {
       enable = true;
       domain = "taskwarrior.${deskDomain}";
+    };
+
+    attic = {
+      enable = true;
+      domain = cacheDomain;
+      environmentFile = config.sops.secrets.attic_credentials.path;
+      s3 = {
+        bucket = "karol-broda";
+        endpoint = "https://nbg1.your-objectstorage.com";
+        region = "eu-central";
+      };
     };
   };
 

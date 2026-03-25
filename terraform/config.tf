@@ -51,6 +51,11 @@ locals {
             name    = "auth"
             type    = "CNAME"
             content = "desk.karolbroda.com"
+          },
+          {
+            name    = "cache"
+            type    = "CNAME"
+            content = "desk.karolbroda.com"
           }
         ]
       }

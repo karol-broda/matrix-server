@@ -10,5 +10,6 @@
     ./netbird.nix
     ./pocketid.nix
     ./taskwarrior.nix
+    ./attic.nix
   ];
 }
